@@ -5,12 +5,15 @@ public class Workshop {
 
     }
 
+
     // Método que suma dos números enteros
     public int sumarDosNumeros(int a, int b) {
         // TODO: Implementar el método para retornar la suma de dos números enteros.
         // Ejemplo: Si a = 3 y b = 5, el resultado debería ser 8.
         return a+b;
     }
+
+
 
     // Método que encuentra el mayor de tres números enteros
     public int mayorDeTresNumeros(int a, int b, int c) {
@@ -25,6 +28,8 @@ public class Workshop {
     }
     }
 
+
+
     // Método que retorna la tabla de multiplicar de un número
     public int[] tablaMultiplicar(int numero, int limite) {
         // TODO: Implementar el método para retornar la tabla de multiplicar del número dado.
@@ -37,26 +42,48 @@ public class Workshop {
          return tabla;
     }
 
+
+
     // Método que calcula el factorial de un número entero
     public int factorial(int n) {
         // TODO: Implementar el método para calcular el factorial de un número entero.
         // Ejemplo: Si n = 5, el resultado debería ser 120.
         // Lanzar IllegalArgumentException si n es negativo.
         if (n < 0) throw new IllegalArgumentException("El número no puede ser negativo");
-                if (n == 0 || n == 1) return 1;
-                int resultado = 1;
-                for (int i = 2; i <= n; i++) {
-                    resultado *= i;
-                }
-                return resultado;
-            }
+        if (n == 0 || n == 1) return 1;
+        int resultado = 1;
+        for (int i = 2; i <= n; i++) {
+            resultado *= i;
+        }
+        return resultado;
+        }
+
+
 
     // Método que verifica si un número es primo
     public boolean esPrimo(int numero) {
         // TODO: Implementar el método para verificar si un número es primo.
         // Ejemplo: Si numero = 7, el resultado debería ser true.
-        return false;
+
+// Los números menores o iguales a 1 no son primos
+        if (numero <= 1) return false;
+        
+        // El 2 es el único primo par
+        if (numero == 2) return true;
+        
+        // Si es par y mayor que 2, no es primo
+        if (numero % 2 == 0) return false;
+
+        // Probamos divisores impares desde 3 hasta la raíz cuadrada del número
+        for (int i = 3; i <= Math.sqrt(numero); i += 2) {
+            if (numero % i == 0) {
+                return false; // Si es divisible por algún 'i', no es primo
+            }
+        }
+        
+        return true; // Si no encontramos divisores, es primo
     }
+
 
     // Método que genera una serie de Fibonacci
     public int[] serieFibonacci(int n) {
