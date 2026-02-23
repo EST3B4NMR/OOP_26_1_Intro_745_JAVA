@@ -65,9 +65,7 @@ public class Workshop {
         // TODO: Implementar el método para verificar si un número es primo.
         // Ejemplo: Si numero = 7, el resultado debería ser true.
 
-// Los números menores o iguales a 1 no son primos
-        if (numero <= 1) return false;
-        
+      
         // El 2 es el único primo par
         if (numero == 2) return true;
         
@@ -90,6 +88,31 @@ public class Workshop {
         // TODO: Implementar el método para generar la serie de Fibonacci hasta el número n.
         // Ejemplo: Si n = 5, el resultado debería ser [0, 1, 1, 2, 3].
         // Lanzar IllegalArgumentException si n es negativo.
+
+if (n < 0) {
+            throw new IllegalArgumentException("n no puede ser negativo");
+        }
+
+        // Si n es 0, retornamos un arreglo vacío
+        if (n == 0) return new int[0];
+        
+        int[] serie = new int[n];
+        
+        // El primer número siempre es 0 si n >= 1
+        serie[0] = 0;
+        
+        // El segundo número siempre es 1 si n >= 2
+        if (n > 1) {
+            serie[1] = 1;
+        }
+
+        // Llenamos el resto del arreglo sumando los dos anteriores
+        for (int i = 2; i < n; i++) {
+            serie[i] = serie[i - 1] + serie[i - 2];
+        }
+
+        return serie;
+    }
         return new int[0];
     }
 
