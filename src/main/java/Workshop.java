@@ -66,22 +66,12 @@ public class Workshop {
         // Ejemplo: Si numero = 7, el resultado debería ser true.
 
       
-        // El 2 es el único primo par
-        if (numero == 2) return true;
-        
-        // Si es par y mayor que 2, no es primo
-        if (numero % 2 == 0) return false;
-
-        // Probamos divisores impares desde 3 hasta la raíz cuadrada del número
-        for (int i = 3; i <= Math.sqrt(numero); i += 2) {
-            if (numero % i == 0) {
-                return false; // Si es divisible por algún 'i', no es primo
-            }
+       if (numero <= 1) return false;
+        for (int i = 2; i <= Math.sqrt(numero); i++) {
+            if (numero % i == 0) return false;
         }
-        
-        return true; // Si no encontramos divisores, es primo
+        return true;
     }
-
 
     // Método que genera una serie de Fibonacci
     public int[] serieFibonacci(int n) {
@@ -113,30 +103,39 @@ if (n < 0) {
 
         return serie;
     }
-        return new int[0];
-    }
 
     // Método que suma todos los elementos de un arreglo
     public int sumaElementos(int[] arreglo) {
         // TODO: Implementar el método para sumar todos los elementos de un arreglo.
         // Ejemplo: Si arreglo = [1, 2, 3, 4, 5], el resultado debería ser 15.
-        return 0;
-    }
-
+            int suma = 0; // Nuestra variable acumuladora
+            
+            // Usamos un ciclo para recorrer el arreglo de inicio a fin
+            for (int i = 0; i < arreglo.length; i++) {
+            suma += arreglo[i]; // Sumamos el valor de la posición actual al total
+            }
+        
+            return suma;
+        }
     // Método que calcula el promedio de los elementos de un arreglo
     public double promedioElementos(int[] arreglo) {
         // TODO: Implementar el método para calcular el promedio de los elementos de un arreglo.
         // Ejemplo: Si arreglo = [1, 2, 3, 4, 5], el resultado debería ser 3.0.
-        return 0.0;
+if (arreglo.length == 0) return 0.0;
+        return (double) sumaElementos(arreglo) / arreglo.length;
     }
 
     // Método que encuentra el elemento mayor en un arreglo
     public int encontrarElementoMayor(int[] arreglo) {
         // TODO: Implementar el método para encontrar el elemento mayor en un arreglo.
         // Ejemplo: Si arreglo = [1, 2, 3, 4, 5], el resultado debería ser 5.
-        return 0;
+if (arreglo.length == 0) return 0;
+        int mayor = arreglo[0];
+        for (int n : arreglo) {
+            if (n > mayor) mayor = n;
+        }
+        return mayor;
     }
-
     // Método que encuentra el elemento menor en un arreglo
     public int encontrarElementoMenor(int[] arreglo) {
         // TODO: Implementar el método para encontrar el elemento menor en un arreglo.
