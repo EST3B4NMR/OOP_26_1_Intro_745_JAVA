@@ -156,19 +156,29 @@ if (arreglo.length == 0) return 0;
 
         for (int i = 0; i < arreglo.length; i++) {
             if (arreglo[i] == elemento) {
-                return true; // ¡Lo encontramos! Terminamos el método aquí mismo.
-            }
+                return true; //            
+           }
         }
         
-        return false; // Si recorrimos todo el arreglo y no estaba, devolvemos false.
+        return false; 
+
     }
 
     // Método que invierte un arreglo
     public int[] invertirArreglo(int[] arreglo) {
         // TODO: Implementar el método para invertir un arreglo.
         // Ejemplo: Si arreglo = [1, 2, 3, 4, 5], el resultado debería ser [5, 4, 3, 2, 1].
-        return new int[0];
-    }
+     if (arreglo == null) return null;
+        
+        int n = arreglo.length;
+        for (int i = 0; i < n / 2; i++) {
+            int temporal = arreglo[i];
+            arreglo[i] = arreglo[n - 1 - i];
+            arreglo[n - 1 - i] = temporal;
+        }
+        return arreglo;
+    } 
+
 
     // Método que ordena un arreglo en orden ascendente
     public int[] ordenarArreglo(int[] arreglo) {
