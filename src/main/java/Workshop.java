@@ -184,7 +184,22 @@ if (arreglo.length == 0) return 0;
     public int[] ordenarArreglo(int[] arreglo) {
         // TODO: Implementar el método para ordenar un arreglo en orden ascendente.
         // Ejemplo: Si arreglo = [5, 4, 3, 2, 1], el resultado debería ser [1, 2, 3, 4, 5].
-        return new int[0];
+       if (arreglo == null) return null;
+        
+        int n = arreglo.length;
+        // El ciclo externo recorre todo el arreglo
+        for (int i = 0; i < n - 1; i++) {
+            // El ciclo interno compara parejas y mueve el mayor al final
+            for (int j = 0; j < n - 1 - i; j++) {
+                if (arreglo[j] > arreglo[j + 1]) {
+                    // Intercambio (swap)
+                    int temp = arreglo[j];
+                    arreglo[j] = arreglo[j + 1];
+                    arreglo[j + 1] = temp;
+                }
+            }
+        }
+        return arreglo;
     }
 
     // Método que elimina los duplicados de un arreglo
